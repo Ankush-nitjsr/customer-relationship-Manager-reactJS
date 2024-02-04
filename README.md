@@ -1,70 +1,76 @@
-# Customer-Relationship-Manager
+# Customer Relationship Manager (ReactJS)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Customer Relationship Manager is a web application developed with ReactJS for the frontend and Spring Boot for the backend. It provides a user interface for managing customer details, with features like login, customer display, customer creation, and data synchronization.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Frontend](#frontend)
+- [Backend](#backend)
+- [API Endpoints](#api-endpoints)
+- [Authentication](#authentication)
+- [Sync Data](#sync-data)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Login Screen:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   - Users can log in to the application.
+   - JWT token is obtained on successful login.
 
-### `npm test`
+2. **Customer Details Display Screen:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - Displays a list of customer details.
+   - Uses Redux for state management.
+   - Allows synchronization of data with a remote API.
 
-### `npm run build`
+3. **Customer Details Input Screen:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - Enables users to input details and create a new customer.
+   - Utilizes React Router DOM for multiple screens.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **JWT Authentication:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - Backend built with Spring Boot.
+   - JWT-based authentication for secure API access.
+   - Bearer Token used for subsequent API calls.
 
-### `npm run eject`
+5. **Data Synchronization:**
+   - Sync button triggers a remote API call to update customer details.
+   - Updates reflected in the application in real-time.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies Used
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Frontend:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  - ReactJS
+  - Redux for state management
+  - React Router DOM for navigation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Backend:**
 
-## Learn More
+  - Spring Boot
+  - JWT-based authentication
+  - Spring Security
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Database:**
+  - MySQL
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Screenshots:
 
-### Code Splitting
+- **Login Screen:**
+  ![Login Screen](./src/images/login_screen.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Customer Details Display Screen:**
+  ![Customer Details Display Screen](./src/images/customer_display_screen.png)
 
-### Analyzing the Bundle Size
+- **Customer Details Input Screen:**
+  ![Customer Details Input Screen](./src/images/customer_input_screen.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **LogOut Screen:**
+  ![Logout Screen](./src/images/logout_screen.png)
