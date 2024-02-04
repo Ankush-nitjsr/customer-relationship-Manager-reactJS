@@ -1,0 +1,9 @@
+table {
+  width: 100%;
+  min-height: 20vh;
+}
+
+tr,
+td {
+  text-align: left;
+}
