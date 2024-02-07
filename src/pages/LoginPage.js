@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import Header from "../components/Common/Header";
-import Input from "../components/Common/Input";
 import Button from "../components/Common/Button";
 import axios from "axios";
-import { useAuth } from "../context/AuthContext";
+import { useDispatch } from "react-redux";
+import { login } from "../slices/authSlice";
 
 function LoginPage() {
-  const { token, login } = useAuth();
   const [flag, setFlag] = useState(false);
   const [loading, setLoading] = useState(false);
   const [admin, setAdmin] = useState({ username: "", password: "" });
+  const dispatch = useDispatch();
+
   const handleLogIn = async () => {
     try {
       const response = await axios.post(
@@ -19,16 +20,14 @@ function LoginPage() {
       const data = response.data;
       console.log(data);
 
-      // token is available in data
-      const token = data;
-
-      // Use the login function to set the token in the context
-      login(token);
-      console.log(login);
+      // implementing new method
+      // Dispatch the login action to update the Redux state
+      dispatch(login(data));
 
       // set the page to logout page
       setFlag(!flag);
     } catch (error) {
+      // Handle errors
       console.error("Login failed", error);
     }
   };
@@ -75,7 +74,7 @@ function LoginPage() {
         <div className="input-wrapper">
           <h1>Login Page</h1>
           <h2 style={{ color: "red" }}>Admin is already Logged In</h2>
-          <p>{`Bearer Token ${token}`}</p>
+          <p>{`Bearer Token`}</p>
           <p>Click on below button to LogOut</p>
           <Button
             text={loading ? "Loading..." : "LogOut"}

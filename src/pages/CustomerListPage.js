@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Common/Header";
 import Button from "../components/Common/Button";
-import Input from "../components/Common/Input";
 import Table from "../components/Common/Table";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useSelector } from "react-redux";
+import { selectToken } from "../slices/authSlice";
+import SearchComponent from "../components/Search";
 
 function CustomerListPage() {
-  const { token } = useAuth();
+  const token = useSelector(selectToken);
 
   axios.defaults.headers.common = {
     Authorization: `Bearer ${token}`,
   };
 
   const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("");
+
   const [customersData, setCustomersData] = useState([]);
+  const [searchData, setSearchData] = useState(customersData);
   const navigate = useNavigate();
 
   const handleSync = async () => {
@@ -40,6 +42,12 @@ function CustomerListPage() {
   const NavigateToCustomerDetailsPage = () => {
     navigate("/customer-details");
   };
+
+  const handleSearch = (filteredData) => {
+    setLoading(true);
+    setSearchData(filteredData);
+  };
+
   return (
     <>
       <Header />
@@ -47,24 +55,24 @@ function CustomerListPage() {
         <h1>Customer List</h1>
         <div className="command-line">
           <Button
-            text={loading ? "Loading..." : "Add Customer"}
-            disabled={loading}
+            text={"Add Customer"}
             onClick={NavigateToCustomerDetailsPage}
           />
-          <Button text={"Search"} />
-          <input
-            name="search"
-            state={search}
-            type="text"
-            placeholder="Search"
-            className="search-input"
+          <SearchComponent
+            allCustomersData={customersData}
+            searchData={searchData}
+            onSearch={handleSearch}
           />
           <button onClick={handleSync} className="sync-btn">
             Sync
           </button>
         </div>
         <div style={{ borderTop: "2px solid var(--white)", width: "100%" }}>
-          <Table data={customersData} />
+          {!loading ? (
+            <Table data={customersData} />
+          ) : (
+            <Table data={searchData} />
+          )}
         </div>
       </div>
     </>

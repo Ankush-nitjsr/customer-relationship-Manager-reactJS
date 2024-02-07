@@ -1,25 +1,16 @@
 import React, { useState } from "react";
 import Header from "../components/Common/Header";
-import Input from "../components/Common/Input";
-import Button from "../components/Common/Button";
 import axios from "axios";
-import { useAuth } from "../context/AuthContext";
+import { useSelector } from "react-redux";
+import { selectToken } from "../slices/authSlice";
 
 function CustomerDetailsPage() {
-  const { token } = useAuth();
+  const token = useSelector(selectToken);
 
   axios.defaults.headers.common = {
     Authorization: `Bearer ${token}`,
   };
 
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [street, setStreet] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [city, setCity] = useState("");
-  // const [state, setState] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   // Using one useState to manage all the details of a customer
   const [newCustomer, setNewCustomer] = useState({
