@@ -48,6 +48,14 @@ function CustomerListPage() {
     setSearchData(filteredData);
   };
 
+  const handleDeleteRow = (updatedCustomersData) => {
+    setCustomersData(updatedCustomersData);
+  };
+
+  const handleUpdateRow = (newUpdatedCustomersData) => {
+    setCustomersData(newUpdatedCustomersData);
+  };
+
   return (
     <>
       <Header />
@@ -59,8 +67,8 @@ function CustomerListPage() {
             onClick={NavigateToCustomerDetailsPage}
           />
           <SearchComponent
-            allCustomersData={customersData}
-            searchData={searchData}
+            allCustomersData={customersData} // not required to pass this
+            searchData={searchData} // only searchData will fullfill the purpose
             onSearch={handleSearch}
           />
           <button onClick={handleSync} className="sync-btn">
@@ -69,9 +77,22 @@ function CustomerListPage() {
         </div>
         <div style={{ borderTop: "2px solid var(--white)", width: "100%" }}>
           {!loading ? (
-            <Table data={customersData} />
+            // <Table
+            //   data={customersData}
+            //   onDelete={handleDeleteRow}
+            //   onUpdate={handleUpdateRow}
+            // />
+            <Table
+              data={customersData}
+              handleDeletedCustomerData={handleDeleteRow}
+              handleUpdatedCustomerData={handleUpdateRow}
+            />
           ) : (
-            <Table data={searchData} />
+            <Table
+              data={searchData}
+              handleDeletedCustomerData={handleDeleteRow}
+              handleUpdatedCustomerData={handleUpdateRow}
+            />
           )}
         </div>
       </div>

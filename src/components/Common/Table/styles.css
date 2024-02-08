@@ -7,3 +7,8 @@ tr,
 td {
   text-align: left;
 }
+
+.action-field {
+  display: flex;
+  width: 5%;
+}
