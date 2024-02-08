@@ -17,8 +17,12 @@ function TableRow({ rowData, onDelete, onUpdate }) {
       <td>{rowData.email}</td>
       <td>{rowData.phone}</td>
       <td>
-        <button onClick={handleDelete}>Delete</button>
-        <button onClick={handleUpdate}>Update</button>
+        <button style={{ backgroundColor: "red" }} onClick={handleDelete}>
+          Delete
+        </button>
+        <button style={{ backgroundColor: "orange" }} onClick={handleUpdate}>
+          Update
+        </button>
       </td>
     </tr>
   );

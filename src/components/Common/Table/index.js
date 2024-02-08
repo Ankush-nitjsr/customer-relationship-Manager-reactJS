@@ -53,36 +53,6 @@ function Table({ data, handleDeletedCustomerData, handleUpdatedCustomerData }) {
         </thead>
         {
           <tbody>
-            {/* {data.map((val, key) => {
-              // console.log(key);// key is 0,1,2,3,,4,5
-              return (
-                <tr key={key} id={key}>
-                  <td>{val.first_name}</td>
-                  <td>{val.last_name}</td>
-                  <td>{val.address}</td>
-                  <td>{val.city}</td>
-                  <td>{val.state}</td>
-                  <td>{val.email}</td>
-                  <td>{val.phone}</td>
-                  <td>
-                    {
-                      <div className="action-field">
-                        <Button
-                          id={key}
-                          onClick={handleDelete(key)}
-                          text={"⛔️"}
-                        />
-                        <Button
-                          id={key}
-                          onClick={handleUpdate(key)}
-                          text={"🖊️"}
-                        />
-                      </div>
-                    }
-                  </td>
-                </tr>
-              );
-            })} */}
             {data.map((rowValue, id) => (
               <TableRow
                 key={id}

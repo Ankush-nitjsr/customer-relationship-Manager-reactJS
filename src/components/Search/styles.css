@@ -39,3 +39,24 @@
 .search-input::placeholder {
   color: var(--theme);
 }
+
+@media (max-width: 1200px) {
+  .searchSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .searchSelect-btn,
+  .search-btn {
+    font-size: 0.75rem;
+  }
+}
+
+/* @media (max-width: 999px) {
+  .searchSelect-btn,
+  .search-btn {
+    font-size: 0.5rem;
+  }
+} */

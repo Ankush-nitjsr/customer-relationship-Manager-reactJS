@@ -69,6 +69,9 @@ The Customer Relationship Manager is a web application developed with ReactJS fo
 - **Customer Details Display Screen:**
   ![Customer Details Display Screen](./src/images/customer_display_screen.png)
 
+- **Search by sepcific term Screen:**
+  ![Customer searchBy function Screen](./src/images/search_selectFunc.png)
+
 - **Customer Details Input Screen:**
   ![Customer Details Input Screen](./src/images/customer_input_screen.png)
 
